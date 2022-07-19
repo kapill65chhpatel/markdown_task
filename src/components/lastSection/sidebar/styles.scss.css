@@ -1,0 +1,16 @@
+.rightside-icon {
+    height: 100%;
+    border-left: solid 1px #eceded;
+    display: flex;
+    flex-direction: column;
+    padding-left: 22px;
+    padding-top: 20px;
+    font-size: 23px;
+    align-items: center;
+    gap: 25px;
+    color: #999899;
+    cursor: pointer;
+}
+.rightside-icon i:hover{
+    color: #598cda;
+}

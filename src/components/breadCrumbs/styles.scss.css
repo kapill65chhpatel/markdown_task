@@ -1,0 +1,27 @@
+.header-gray-bg {
+  background-color: #ededee;
+  padding: 15px 0px;
+}
+.icons-head {
+  font-size: 14px;
+  color: #5b5b5b;
+  display: flex;
+  gap: 20px;
+  cursor: pointer;
+}
+.color-blue {
+  color: #598cda;
+}
+.btn-green {
+  background-color: #57aa68;
+  color: #fff;
+  text-align: center;
+  min-width: 200px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+}
+.btn-green:hover {
+  background-color: #286d36;
+  color: #fff;
+}
