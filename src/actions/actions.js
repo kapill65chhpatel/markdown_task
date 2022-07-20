@@ -21,6 +21,7 @@ const getPostsRequest = () => {
       .get("https://jsonplaceholder.typicode.com/posts", config)
       .then((response) => {
         dispatch({ type: GET_POSTS_SUCCESS, json: response });
+        return { success: true, response: response.data };
       })
       .catch((error) =>
         dispatch({ type: GET_POSTS_ERROR, error: error.message })

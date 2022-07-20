@@ -13,7 +13,8 @@ import {
 } from "../utils/constants";
 
 const InitialStateInterface = {
-  getUniquePost: [],
+  getAllPosts: [],
+  getAllComments: [],
 };
 
 class InitialState extends Record(InitialStateInterface) {
@@ -27,7 +28,9 @@ export const postsReducer = (state = new InitialState(), action = {}) => {
     case GET_POSTS_REQUEST:
       return state.set("isFetching", LOADING);
     case GET_POSTS_SUCCESS:
-      return state.set("isFetching", SUCCESS).set("getUniquePost", action.json);
+      return state
+        .set("isFetching", SUCCESS)
+        .set("getAllPosts", action.json.data);
     case GET_POSTS_ERROR:
       return state.set("isFetching", ERROR);
     default:
@@ -40,7 +43,9 @@ export const commentsReducer = (state = new InitialState(), action = {}) => {
     case GET_COMMENTS_REQUEST:
       return state.set("isFetching", LOADING);
     case GET_COMMENTS_SUCCESS:
-      return state.set("isFetching", SUCCESS).set("getUniquePost", action.json);
+      return state
+        .set("isFetching", SUCCESS)
+        .set("getAllComments", action.json.data);
     case GET_COMMENTS_ERROR:
       return state.set("isFetching", ERROR);
     default:
