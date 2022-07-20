@@ -4,12 +4,12 @@ import Header from "./components/header";
 import LastSection from "./components/lastSection";
 
 function App() {
-  const [wordCount, setWordCount] = useState(50);
+  const [wordCount, setWordCount] = useState(0);
   return (
     <div className="App">
-      <Header wordCount={wordCount} setWordCount={setWordCount} />
+      <Header wordCount={wordCount} />
       <BreadCrumbs />
-      <LastSection setWordCount={setWordCount} />
+      <LastSection wordCount={wordCount} setWordCount={setWordCount} />
     </div>
   );
 }

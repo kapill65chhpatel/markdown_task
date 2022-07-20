@@ -4,8 +4,9 @@ import { getComments, getPosts } from "../../actions/actions";
 import CommentSection from "./commentSection";
 import SideBar from "./sidebar";
 import TranslationForm from "./translation";
+import _ from "lodash";
 
-const LastSection = ({ setWordCount }) => {
+const LastSection = ({ wordCount, setWordCount }) => {
   const [userId, setUserId] = useState(null);
   const [posts, setPosts] = useState([]);
   const [comments, setComments] = useState([]);
@@ -15,8 +16,9 @@ const LastSection = ({ setWordCount }) => {
   useEffect(() => {
     dispatch(getPosts()).then((res) => {
       if (res.success) {
-        const data = res.response.slice(0, 10);
-        setPosts(data);
+        const data = res.response.slice(0, 20);
+        const copyData = _.cloneDeep(data);
+        setPosts(copyData);
       }
     });
     dispatch(getComments());

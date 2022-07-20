@@ -1,4 +1,14 @@
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faDownload,
+  faCopyright,
+  faAngleDoubleLeft,
+  faChevronLeft,
+  faChevronRight,
+  faAngleDoubleRight,
+  faEye,
+} from "@fortawesome/free-solid-svg-icons";
 import "./styles.scss.css";
 
 const BreadCrumbs = () => {
@@ -7,14 +17,14 @@ const BreadCrumbs = () => {
       <div className="container-fluid">
         <div className="d-flex justify-content-between align-items-center">
           <div className="icons-head">
-            <i className="fas fa-download"></i>
-            <i className="far fa-copyright color-blue"></i>
-            <i className="fas fa-angle-double-left"></i>
-            <i className="fas fa-chevron-left"></i>
-            <i className="fas fa-chevron-right"></i>
-            <i className="fas fa-angle-double-right"></i>
-            <i className="fas fa-angle-double-right"></i>
-            <i className="fas fa-eye color-blue"></i>
+            <FontAwesomeIcon icon={faDownload} />
+            <FontAwesomeIcon icon={faCopyright} className="color-blue" />
+            <FontAwesomeIcon icon={faAngleDoubleLeft} />
+            <FontAwesomeIcon icon={faChevronLeft} />
+            <FontAwesomeIcon icon={faChevronRight} />
+            <FontAwesomeIcon icon={faAngleDoubleRight} />
+            <FontAwesomeIcon icon={faAngleDoubleRight} />
+            <FontAwesomeIcon icon={faEye} className="color-blue" />
           </div>
           <div className="btn-head">
             <a href="/" className="btn-green">

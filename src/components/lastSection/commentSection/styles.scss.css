@@ -41,3 +41,16 @@
 .msg-list li .circle.green {
   background-color: #57ab68;
 }
+.width-90 {
+  width: 90%;
+}
+@media (max-width: 1024px) {
+  .width-90 {
+    width: 80%;
+  }
+}
+@media (max-width: 767px) {
+  .width-90 {
+    width: 95%;
+  }
+}

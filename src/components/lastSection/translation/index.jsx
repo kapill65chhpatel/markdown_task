@@ -1,12 +1,41 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
+import { useSelector } from "react-redux";
+import _ from "lodash";
 import "./styles.scss.css";
 
-const TranslationForm = ({ posts, setPosts, setUserId }) => {
+let wordCountSum = {};
+const TranslationForm = ({ posts, setPosts, setUserId, setWordCount }) => {
+  const allPost = useSelector((state) => state.post.getAllPosts);
   const onChangeHandler = (e, index, userId) => {
     let data = [...posts];
     data[index][e.target.name] = e.target.value;
     setPosts(data);
     setUserId(userId);
+  };
+
+  function findDiff(from_str, to_stri) {
+    let diff = "";
+    from_str.split("").forEach(function (val, i) {
+      if (val != to_stri.charAt(i)) diff += val;
+    });
+    return diff;
+  }
+
+  const wordCounter = (str1, str2, item) => {
+    const sum = 0;
+    if (str1.length > str2.length) {
+      let diff = findDiff(str1, str2);
+      wordCountSum[`item-${item.id}`] = diff
+        .split(" ")
+        .filter((item) => item.trim()).length;
+    } else if (str2.length > str1.length) {
+      let diff = findDiff(str2, str1);
+      wordCountSum[`item-${item.id}`] = diff
+        .split(" ")
+        .filter((item) => item.trim()).length;
+    }
+    const totalWords = _.sum(_.values(wordCountSum));
+    setWordCount(totalWords);
   };
 
   return (
@@ -26,7 +55,7 @@ const TranslationForm = ({ posts, setPosts, setUserId }) => {
                         name="fixedField"
                         type="text"
                         className="form-control"
-                        value={item.title}
+                        defaultValue={allPost[index]["title"]}
                       />
                     </div>
                     <div className="input-box">
@@ -34,6 +63,11 @@ const TranslationForm = ({ posts, setPosts, setUserId }) => {
                         name="title"
                         onChange={(e) => {
                           onChangeHandler(e, index, item.userId);
+                          wordCounter(
+                            allPost[index]["title"],
+                            e.target.value,
+                            item
+                          );
                         }}
                         type="text"
                         className="form-control"
