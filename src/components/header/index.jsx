@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import ProgressBar from "@ramonak/react-progress-bar";
 import "./styles.scss.css";
 import HeaderLogo from "../../assests/logo.png";
@@ -16,7 +16,7 @@ const Header = ({ wordCount }) => {
             <div className="head-lang">English - Spanish</div>
           </div>
           <div className="col-xl-3 col-lg-3 col-md-5 col-sm-12">
-            <div class="progresstitle">Progress</div>
+            <div className="progresstitle">Progress</div>
             <ProgressBar
               bgColor={wordCount >= 100 ? "red" : "#66c879"}
               completed={wordCount >= 100 ? 100 : wordCount}

@@ -1,5 +1,3 @@
-/* Left form Open */
-
 .left-side-form {
   max-height: calc(100vh - 120px);
   overflow-x: auto;
@@ -51,4 +49,7 @@
   border-radius: 0px;
 }
 
-/* Left form Close */
+.form-control:disabled {
+  background-color: #fff;
+  opacity: 1;
+}

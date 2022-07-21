@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFlag, faQuestionCircle } from "@fortawesome/free-solid-svg-icons";
@@ -8,14 +8,12 @@ const CommentSection = ({ userId, comments, setComments }) => {
 
   useEffect(() => {
     if (userId) {
-      const filteredData = allComments.filter((filterItem) => {
-        if (filterItem.postId === userId) {
-          return filterItem;
-        }
-      });
+      const filteredData = allComments.filter(
+        (filterItem) => filterItem.postId === userId
+      );
       setComments(filteredData);
     }
-  }, [userId]);
+  }, [userId, allComments, setComments]);
 
   return (
     <>
@@ -23,7 +21,7 @@ const CommentSection = ({ userId, comments, setComments }) => {
         <div className="comment-box">
           <h3>
             <FontAwesomeIcon icon={faFlag} />
-            Comments
+            {"  "}Comments
           </h3>
           {comments &&
             comments.length > 0 &&

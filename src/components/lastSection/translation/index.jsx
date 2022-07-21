@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
 import _ from "lodash";
 import "./styles.scss.css";
@@ -16,13 +16,12 @@ const TranslationForm = ({ posts, setPosts, setUserId, setWordCount }) => {
   function findDiff(from_str, to_stri) {
     let diff = "";
     from_str.split("").forEach(function (val, i) {
-      if (val != to_stri.charAt(i)) diff += val;
+      if (val !== to_stri.charAt(i)) diff += val;
     });
     return diff;
   }
 
   const wordCounter = (str1, str2, item) => {
-    const sum = 0;
     if (str1.length > str2.length) {
       let diff = findDiff(str1, str2);
       wordCountSum[`item-${item.id}`] = diff
@@ -55,7 +54,8 @@ const TranslationForm = ({ posts, setPosts, setUserId, setWordCount }) => {
                         name="fixedField"
                         type="text"
                         className="form-control"
-                        defaultValue={allPost[index]["title"]}
+                        disabled
+                        value={allPost[index]["title"]}
                       />
                     </div>
                     <div className="input-box">
